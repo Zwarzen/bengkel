@@ -136,7 +136,7 @@
 
           <!---add data---->
           <div class="btn">
-          <a class="btn btn-primary" href="script/tambahDataSiswa.php"> Tambah Data
+          <a class="btn btn-primary" href="script/tambahDataPelanggan.php"> Tambah Data
           </a>
           </div>
           
@@ -155,6 +155,7 @@
                       <th>No</th>
                       <th>ID</th>
                       <th>Nama Pelanggan</th>
+                      <th>Pembayaran</th>
                       <th>Alamat</th>
                       <th>Telp</th>
                       <th>Status</th>
@@ -163,25 +164,26 @@
                   </thead>
                   <tbody>
                   <?php 
+                  ini_set('display_errors',0);
+                  include 'script/data_pelanggan/koneksi.php';
 
-                  include 'script/data_siswa/koneksi.php';
-
-                  $data = mysqli_query($koneksi, "SELECT * FROM tb_siswa");
+                  $data = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan");
                   $no = 1;
                   foreach ($data as $row) {
                     echo "
                     <tr>
                       <td> " . $no++ . "</td>
-                      <td> " . $row['id_siswa'] . "  </td>
-                      <td> " . $row['nama_siswa'] . "  </td>
-                      <td> " . $row['nama_ortu'] . "  </td>
+                      <td> " . $row['id_pelanggan'] . "  </td>
+                      <td> " . $row['nama_pelanggan'] . "  </td>
+                      <td> " . $row['pembayaran'] . "  </td>
                       <td> " . $row['alamat'] . "  </td>
                       <td> " . $row['no_telp'] . " </td>
+                      <td> " . $row['status'] . " </td>
                       <td>
                         
-                        <a href='script/data_siswa/ubah.php?id_siswa=$row[id_siswa]'><i class = 'fa fa-cog'></i></a>
+                        <a href='script/data_pelanggan/ubah.php?id_pelanggan=$row[id_pelanggan]'><i class = 'fa fa-cog'></i></a>
                         |
-                        <a href='script/data_siswa/delete.php?id_siswa=$row[id_siswa]'><i class = 'fa fa-trash-alt'></i></a>
+                        <a href='script/data_pelanggan/delete.php?id_pelanggan=$row[id_pelanggan]'><i class = 'fa fa-trash-alt'></i></a>
                         
                       </td>
                       </tr>

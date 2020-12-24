@@ -143,7 +143,19 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah Pelanggan</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">253</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <?php  
+                          include 'script/data_pelanggan/koneksi.php';
+
+                                  $query=mysqli_query($koneksi,"SELECT count(id_pelanggan) From tb_pelanggan");
+                                  $hasil=count($query);
+
+                                  echo "$hasil";
+
+
+                        ?>
+                          
+                      </div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -160,7 +172,14 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Jumlah Pegawai</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">65</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                          <?php  
+                          include 'script/data_pegawai/koneksi.php';
+                                  $sql    ="SELECT nama_pegawai FROM tb_pegawai";
+                                  $count    =count('nama_pegawai');
+                                  echo "$count";
+                          ?>
+                      </div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -180,7 +199,15 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Sudah Perbaikan</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">78</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <?php  
+                          include 'script/data_pelanggan/koneksi.php';
+                                  $query=mysqli_query($koneksi,"SELECT count(id_pelanggan) From tb_pelanggan");
+                                  $hasil=count($query);
+
+                                  echo "$hasil";
+                          ?>
+                      </div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-cogs fa-2x text-gray-300"></i>

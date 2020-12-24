@@ -136,7 +136,7 @@
 
           <!---add data---->
           <div class="btn">
-          <a class="btn btn-primary" href="script/tambahDataKelas.php" > Tambah Data
+          <a class="btn btn-primary" href="script/tambahDataPegawai.php" > Tambah Data
           </a>
           </div>
           
@@ -152,31 +152,29 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>ID Pegawai</th>
                       <th>Nama Pegawai</th>
-                      <th>Aktif</th>
+                      <th>Aktifitas</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
                   <?php 
+                      ini_set('display_errors',0);
+                  include 'script/data_pegawai/koneksi.php';
 
-                  include 'script/data_kelas/koneksi.php';
-
-                  $data = mysqli_query($koneksi, "SELECT * FROM tb_kelas");
+                  $data = mysqli_query($koneksi, "SELECT * FROM tb_pegawai");
                   $no = 1;
                   foreach ($data as $row) {
                     echo "
                     <tr>
                       <td> " . $no++ . "</td>
-                      <td> " . $row['id_kelas'] . "  </td>
-                      <td> " . $row['nama_kelas'] . "  </td>
-                      <td> " . $row['gedung'] . "  </td>
+                      <td> " . $row['nama_pegawai'] . "  </td>
+                      <td> " . $row['aktifitas'] . "  </td>
                       <td>
                         
-                        <a href='script/data_kelas/ubah.php?id_kelas=$row[id_kelas]'><i class = 'fa fa-cog'></i></a>
+                        <a href='script/data_pegawai/ubah.php?id_pegawai=$row[id_pegawai]'><i class = 'fa fa-cog'></i></a>
                         |
-                        <a href='script/data_kelas/delete.php?id_kelas=$row[id_kelas]'><i class = 'fa fa-trash-alt'></i></a>
+                        <a href='script/data_pegawai/delete.php?id_pegawai=$row[id_pegawai]'><i class = 'fa fa-trash-alt'></i></a>
                         
                       </td>
                       </tr>
